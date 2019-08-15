@@ -2,10 +2,20 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000",
   "dependencies": {
+    "@apollo/react-hooks": "^3.0.1",
+    "@types/node": "^12.7.2",
+    "@types/react": "^16.9.1",
+    "@types/react-dom": "^16.8.5",
+    "apollo-boost": "^0.4.4",
+    "graphql": "^14.4.2",
     "react": "^16.9.0",
+    "react-apollo": "^3.0.1",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
