@@ -13,7 +13,8 @@
 		"trailing-comma": false,
 		"arrow-parens": false,
 		"interface-name": false,
-		"curly": false
+		"curly": false,
+		"max-line-length": false
 	},
 	"rulesDirectory": []
 }

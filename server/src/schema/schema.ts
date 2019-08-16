@@ -11,12 +11,6 @@ import {
 import BookModel from '../models/book';
 import AuthorModel from '../models/author';
 
-// const books: IBook[] = [
-// 	{ id: '1', name: "BookName 1", genre: "Fantasy", available: false, authorId: "1" },
-// 	{ id: "2", name: "BookName 2", genre: "Fantasy", available: true, authorId: "3" },
-// 	{ id: "3", name: "BookName 3", genre: "Sci-Fi", available: true, authorId: "2" }
-// ];
-
 const BookType: any = new GraphQLObjectType({
 	name: 'Book',
 	fields: () => ({
