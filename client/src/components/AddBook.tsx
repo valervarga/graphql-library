@@ -1,10 +1,11 @@
 import React, { useState, SyntheticEvent } from 'react'
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import Author from '../interfaces/author';
-import { getAuthorsQuery } from '../queries/queries';
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries';
 
 const AddBook = () => {
 	const { loading, error, data } = useQuery(getAuthorsQuery);
+	const [addBook, { loading: addingBook }] = useMutation(addBookMutation);
 	const [name, setName] = useState('');
 	const [genre, setGenre] = useState('');
 	const [available, setAvailable] = useState(false);
@@ -19,8 +20,15 @@ const AddBook = () => {
 	const handleSubmit = (event: SyntheticEvent) => {
 		event.preventDefault();
 
-		console.log(name, genre, available, authorId);
-	}
+		addBook({
+			variables: { name, genre, available, authorId },
+			refetchQueries: [{ query: getBooksQuery }]
+		});
+		setName('');
+		setGenre('');
+		setAvailable(false);
+		setAuthorId('');
+	};
 
 	return (
 		<form id="add-book" onSubmit={handleSubmit}>
@@ -44,9 +52,9 @@ const AddBook = () => {
 				</select>
 			</div>
 
-			<button>+</button>
+			<button disabled={addingBook}>+</button>
 		</form>
 	)
-}
+};
 
 export default AddBook;

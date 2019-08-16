@@ -1,7 +1,8 @@
 import React from 'react';
 import Book from '../interfaces/book';
 
-const BookItem = ({name, genre, available}: Book) => {
+const BookItem = ({id, name, genre, available}: Book) => {
+
 	return (
 		<div>
 			<h3>{ name }</h3>

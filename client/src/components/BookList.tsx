@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import { getBooksQuery } from '../queries/queries';
 import Book from '../interfaces/book';
 import BookItem from './BookItem';
-import { getBooksQuery } from '../queries/queries';
+import BookDetails from './BookDetails';
 
 const BookList: FC = () => {
 	const { loading, error, data } = useQuery(getBooksQuery);
@@ -16,6 +17,7 @@ const BookList: FC = () => {
 	return (
 		<div>
 			{ fetchedBooks }
+			<BookDetails />
 		</div>
 	)
 }
